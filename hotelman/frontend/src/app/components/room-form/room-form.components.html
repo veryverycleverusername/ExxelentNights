@@ -1,0 +1,22 @@
+<h2>{{ isEditing ? 'Zimmer bearbeiten' : 'Neues Zimmer erstellen' }}</h2>
+
+<form (ngSubmit)="submit()">
+
+    <label>Zimmernummer</label>
+    <input [(ngModel)]="room.roomNumber" name="roomNumber" [readonly]="isEditing">
+
+    <label>Typ</label>
+    <select [(ngModel)]="room.type" name="type">
+        <option value="Einzelzimmer">Einzelzimmer</option>
+        <option value="Doppelzimmer">Doppelzimmer</option>
+        <option value="Suite">Suite</option>
+    </select>
+
+    <label>Minibar</label>
+    <input type="checkbox" [(ngModel)]="room.minibar" name="minibar">
+
+    <label>Frei verfügbar</label>
+    <input type="checkbox" [(ngModel)]="room.available" name="available">
+
+    <button type="submit">Speichern</button>
+</form>

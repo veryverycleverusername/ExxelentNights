@@ -34,7 +34,7 @@ public class RoomController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    //Hotelzimmer lassen sich via REST API neu anlegen, da das Hotel stetig wächs
+    //Hotelzimmer lassen sich via REST API neu anlegen, da das Hotel stetig wächst
     @PostMapping
     public ResponseEntity<Room> create(@Valid @RequestBody Room room){
         Room created = service.create(room);
@@ -51,6 +51,7 @@ public class RoomController {
         Room updated = service.update(roomNumber, room);
         return ResponseEntity.ok(updated);
     }
+    //falls 1. requestmapping nicht funktioniert
     @GetMapping("/available")
     public List<Room> getAvailableRooms() {
         return service.getAvailableRooms();

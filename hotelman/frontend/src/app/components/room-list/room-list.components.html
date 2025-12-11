@@ -1,0 +1,18 @@
+<h2>Hotelzimmer</h2>
+
+<button (click)="toggleFilter()">
+    {{ filterAvailable ? 'Alle Zimmer anzeigen' : 'Nur freie Zimmer anzeigen' }}
+</button>
+
+<ul>
+    <li *ngFor="let room of rooms">
+        <a [routerLink]="['/rooms', room.roomNumber]">
+            Zimmer {{ room.roomNumber }} – {{ room.type }}
+            <span *ngIf="room.minibar">minibar</span>
+            <span *ngIf="room.available">Zimmer ist frei</span>
+            <span *ngIf="!room.available">Zimmer ist belegt</span>
+        </a>
+    </li>
+</ul>
+
+<a routerLink="/rooms/new">Neues Zimmer anlegen</a>

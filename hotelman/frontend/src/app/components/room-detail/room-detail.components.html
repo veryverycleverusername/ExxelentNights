@@ -1,0 +1,11 @@
+<h2>Zimmerdetails</h2>
+
+<div *ngIf="room">
+
+    <p><strong>Nummer:</strong> {{ room.roomNumber }}</p>
+    <p><strong>Typ:</strong> {{ room.type }}</p>
+    <p><strong>Minibar:</strong> {{ room.minibar ? 'Ja' : 'Nein' }}</p>
+    <p><strong>Status:</strong> {{ room.available ? 'Frei' : 'Belegt' }}</p>
+
+    <a [routerLink]="['/rooms/edit', room.roomNumber]">Zimmer bearbeiten</a>
+</div>
