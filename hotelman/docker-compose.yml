@@ -2,16 +2,18 @@ version: '3.8'
 
 services:
   mongo:
-    image: mongo:7
+    image: mongo:6
     container_name: hotel_mongo
     restart: always
     ports:
       - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: hotelman
     volumes:
       - mongo_data:/data/db
 
   backend:
-    build: .
+    build: ./backend
     container_name: hotel_backend
     restart: always
     ports:
@@ -29,7 +31,7 @@ services:
     ports:
       - "4200:80"
     environment:
-      API_URL: http://backend:8080
+      API_URL: http://backend:8080/api/rooms
 
 volumes:
   mongo_data:
